@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 80 6% 88%;
+    --foreground: 0 0% 10%;
+    --card: 210 14% 96%;
+    --card-foreground: 0 0% 10%;
+    --popover: 210 14% 96%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 0 100% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 208 100% 29%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 14% 90%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 210 20% 94%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 10%;
+    --input: 0 0% 10%;
+    --ring: 208 100% 29%;
+    --radius: 4px;
+
+    --rewe-red: 0 100% 40%;
+    --rewe-blue: 208 100% 29%;
+    --feedback-green: 142 71% 45%;
+    --feedback-yellow: 45 93% 47%;
+    --feedback-red: 0 84% 60%;
+    --shadow-color: 0 0% 10%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    background-image: 
+      linear-gradient(hsl(0 0% 82% / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 82% / 0.5) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+@layer components {
+  .chunky-border {
+    border: 2px solid hsl(var(--border));
+  }
+  .chunky-shadow {
+    box-shadow: 4px 4px 0px hsl(var(--shadow-color));
+  }
+  .chunky-shadow-sm {
+    box-shadow: 2px 2px 0px hsl(var(--shadow-color));
+  }
+  .btn-press {
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  .btn-press:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px hsl(var(--shadow-color));
+  }
+}
