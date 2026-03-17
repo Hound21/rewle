@@ -12,14 +12,14 @@
   <p align="center">
     A Wordle-like daily guessing game for Rewe products!
     <br />
-    <a href="https://github.com/Hound21/rewle-game"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Hound21/rewle"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="">View Game</a>
     ·
-    <a href="https://github.com/Hound21/rewle-game/issues">Report Bug</a>
+    <a href="https://github.com/Hound21/rewle/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Hound21/rewle-game/issues">Request Feature</a>
+    <a href="https://github.com/Hound21/rewle/issues">Request Feature</a>
   </p>
   
 
