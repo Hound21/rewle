@@ -18,6 +18,7 @@ import {
   Stats,
 } from "@/lib/gameLogic";
 import { toast } from "sonner";
+import shareIcon from "@/assets/share-icon.svg";
 
 export default function GamePage() {
   const [state, setState] = useState<DailyState>(loadDailyState);
@@ -116,7 +117,7 @@ export default function GamePage() {
                 >
                   <div className="flex items-center justify-center gap-2">
                     {strings.share}
-                    <img src="./assets/share-icon.svg"className="w-5 h-5" alt="" />
+                    <img src={shareIcon} className="w-5 h-5" alt="" />
                   </div>
                 </button>
               )
