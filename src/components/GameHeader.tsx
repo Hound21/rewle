@@ -1,5 +1,4 @@
 import { t } from "@/lib/i18n";
-import statsIcon from "@/assets/stats.svg";
 
 interface HeaderProps {
   onOpenHelp: () => void;
@@ -29,7 +28,7 @@ export default function Header({ onOpenHelp, onOpenStats }: HeaderProps) {
         className="w-10 h-10 chunky-border chunky-shadow-sm btn-press rounded-sm bg-card font-display text-base flex items-center justify-center"
         aria-label={strings.stats}
       >
-        <img src={statsIcon} className="w-full h-full" alt="" />
+        <img src="/rewle/assets/stats.svg" className="w-full h-full" alt="" />
       </button>
     </header>
   );
