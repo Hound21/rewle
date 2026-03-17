@@ -145,7 +145,7 @@ export function generateShareText(state: DailyState): string {
     const colorSquare = g.color === "green" ? "🟩" : g.color === "yellow" ? "🟨" : "🟥";
     return g.direction === "exact" ? "✅" : `${arrow}${colorSquare}`;
   });
-  return `Rewle #${puzzleNum} ${attempts}\n${lines.join("\n")}\nhttps://rewle.de`;
+  return `Rewle #${puzzleNum} ${attempts}\n${lines.join("\n")}\nhttps://hound21.github.io/rewle/`;
 }
 
 export { MAX_GUESSES };
