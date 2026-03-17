@@ -15,7 +15,7 @@
     <a href="https://github.com/Hound21/rewle"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="">View Game</a>
+    <a href="https://hound21.github.io/rewle/">View Game</a>
     ·
     <a href="https://github.com/Hound21/rewle/issues">Report Bug</a>
     ·
