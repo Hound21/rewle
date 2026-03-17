@@ -1,58 +1,60 @@
-# Rewle
+<a name="readme-top"></a>
 
-Daily REWE price guessing game built with React + Vite + TypeScript.
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="">
+    <img src="assets/rewle-large.png" alt="Logo" width="80" height="80">
+  </a>
 
-## Local development
+<h3 align="center">REWLE</h3>
 
-Requirements:
+  <p align="center">
+    A Wordle-like daily guessing game for Rewe products!
+    <br />
+    <a href="https://github.com/Hound21/rewle-game"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="">View Game</a>
+    ·
+    <a href="https://github.com/Hound21/rewle-game/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Hound21/rewle-game/issues">Request Feature</a>
+  </p>
+  
 
-- Node.js 20+
-- npm 10+
+</div>
 
-Install and start:
 
-```sh
-npm install
-npm run dev
-```
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-The app runs on `http://localhost:8080`.
+[![Product Name Screen Shot][product-screenshot]](https://rewle.de)
 
-## Available scripts
+Guess the REWLE in 6 tries.
 
-- `npm run dev` — start local development server
-- `npm run build` — create production build in `dist/`
-- `npm run preview` — preview production build locally
-- `npm run test` — run Vitest tests
-- `npm run lint` — run ESLint
+* Incorrect guesses will help guide you to the target price.
 
-## Deploy to GitHub Pages
+If you guess within 3% of the target price, you win!
 
-1. Push this project to a GitHub repository.
-2. Install Pages deploy tooling:
+A new REWLE is available every day!
 
-	```sh
-	npm install -D gh-pages
-	```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-3. Add this to `package.json`:
 
-	- `"homepage": "https://<your-github-username>.github.io/<your-repo-name>/"`
-	- script: `"predeploy": "npm run build"`
-	- script: `"deploy": "gh-pages -d dist"`
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
 
-4. If deploying under a repo path (not a custom domain), set Vite base path in `vite.config.ts`:
+This project would not have been possible without the following resources:
 
-	```ts
-	export default defineConfig({
-	  base: "/<your-repo-name>/",
-	});
-	```
+* [Rewe](https://www.rewe.de/)
+* [Wordle](https://www.nytimes.com/games/wordle/index.html)
+* [Costcodle](https://costcodle.com/)
+* [Best-README-Template](https://github.com/othneildrew/Best-README-Template/)
 
-5. Deploy:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-	```sh
-	npm run deploy
-	```
 
-6. In GitHub repo settings, open **Pages** and verify source is the `gh-pages` branch.
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[product-screenshot]: assets/wordle-game.png

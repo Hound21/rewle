@@ -71,7 +71,7 @@ export function getDailyProduct(): Product {
 }
 
 export function getPuzzleNumber(): number {
-  const start = new Date("2025-01-01").getTime();
+  const start = new Date("2026-03-17").getTime();
   const now = new Date(getTodayString()).getTime();
   return Math.floor((now - start) / 86400000) + 1;
 }
@@ -79,8 +79,8 @@ export function getPuzzleNumber(): number {
 export function evaluateGuess(guess: number, target: number): GuessResult {
   const error = Math.abs(guess - target) / target;
   let color: GuessResult["color"];
-  if (error <= 0.05) color = "green";
-  else if (error <= 0.25) color = "yellow";
+  if (error <= 0.03) color = "green";
+  else if (error <= 0.20) color = "yellow";
   else color = "red";
 
   let direction: GuessResult["direction"];

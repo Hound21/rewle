@@ -51,6 +51,12 @@ export default function HelpModal({ open, onClose }: HelpModalProps) {
           </div>
         </div>
 
+        <hr className="border-border my-4" />
+        <div className="font-body text-xs text-muted-foreground text-center space-y-1 mb-4">
+          <p>Source code available on my <a href="https://github.com/Hound21/rewle-game" className="underline">GitHub</a>!</p>
+          <p>Special thanks to <a href="https://costcodle.com/" className="underline"><span className="text-rewe-red">COSTCO</span><span className="text-rewe-blue">DLE</span></a> and <a href="https://www.nytimes.com/games/wordle/index.html" className="underline"><span className="text-feedback-green">Wordle</span></a> for inspiring REWLE!</p>
+        </div>
+
         <button
           onClick={onClose}
           className="w-full h-10 chunky-border rounded-sm bg-muted font-display text-sm btn-press chunky-shadow-sm"
