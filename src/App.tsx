@@ -13,7 +13,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/rewle/">
         <Routes>
           <Route path="/" element={<GamePage />} />
           <Route path="*" element={<NotFound />} />
