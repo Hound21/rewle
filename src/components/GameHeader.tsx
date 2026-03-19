@@ -9,7 +9,7 @@ export default function Header({ onOpenHelp, onOpenStats }: HeaderProps) {
   const strings = t();
 
   return (
-    <header className="flex items-center justify-between px-4 py-3 chunky-border border-x-0 border-t-0">
+    <header className="flex items-center justify-between px-3 py-2 sm:px-4 sm:py-3 chunky-border border-x-0 border-t-0">
       <button
         onClick={onOpenHelp}
         className="w-10 h-10 chunky-border chunky-shadow-sm btn-press rounded-sm bg-card font-display text-lg flex items-center justify-center"
@@ -18,7 +18,7 @@ export default function Header({ onOpenHelp, onOpenStats }: HeaderProps) {
         ?
       </button>
 
-      <h1 className="font-lilita text-6xl md:text-6xl tracking-wide select-none leading-none">
+      <h1 className="font-lilita text-5xl sm:text-6xl tracking-wide select-none leading-none">
         <span className="text-rewe-red">REW</span>
         <span className="text-rewe-blue">LE</span>
       </h1>

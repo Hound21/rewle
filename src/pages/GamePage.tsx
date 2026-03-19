@@ -4,6 +4,7 @@ import GuessRows from "@/components/GuessRows";
 import GuessInput from "@/components/GuessInput";
 import StatsModal from "@/components/StatsModal";
 import HelpModal from "@/components/HelpModal";
+import ImpressumDialog from "@/components/ImpressumDialog";
 import { t } from "@/lib/i18n";
 import {
   getDailyProduct,
@@ -24,6 +25,7 @@ export default function GamePage() {
   const [stats, setStats] = useState<Stats>(loadStats);
   const [showStats, setShowStats] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
+  const [showImpressum, setShowImpressum] = useState(false);
 
   const product = getDailyProduct();
   const strings = t();
@@ -67,8 +69,8 @@ export default function GamePage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center">
-      <div className="w-full max-w-game flex flex-col min-h-screen">
+    <div className="min-h-screen flex flex-col">
+      <div className="w-full max-w-game mx-auto flex flex-1 flex-col">
         <Header
           onOpenHelp={() => setShowHelp(true)}
           onOpenStats={() => setShowStats(true)}
@@ -77,7 +79,12 @@ export default function GamePage() {
         <main className="flex-1 flex flex-col px-4 py-4 gap-4">
           {/* Product */}
           <div className="flex flex-col items-center gap-4">
-            <div className="w-56 h-56 chunky-border chunky-shadow rounded-sm bg-card p-2 flex items-center justify-center overflow-hidden">
+            <div className="relative w-56 h-56 chunky-border chunky-shadow rounded-sm bg-card p-2 flex items-center justify-center">
+              {product.isPromo && (
+                <span className="absolute -right-4 -bottom-2 z-10 chunky-border chunky-shadow rounded-full bg-rewe-red px-2 py-0.5 text-[12px] font-medium tracking-wide text-primary-foreground">
+                  Angebotspreis
+                </span>
+              )}
               <img
                 src={product.image}
                 alt={productName}
@@ -125,8 +132,23 @@ export default function GamePage() {
         </main>
       </div>
 
+      <footer className="w-full mt-auto border-t border-x-0 border-b-0 bg-muted px-2 py-1">
+        <div className="flex w-full items-center justify-between gap-2">
+          <p className="text-[10px] text-muted-foreground leading-tight">
+            Inoffizielles Fanprojekt - Keine Verbindung zu REWE
+          </p>
+          <button
+            onClick={() => setShowImpressum(true)}
+            className="shrink-0 rounded-sm chunky-border bg-background px-2 py-0.5 text-[10px] font-semibold text-foreground btn-press"
+          >
+            Impressum
+          </button>
+        </div>
+      </footer>
+
       <StatsModal open={showStats} onClose={() => setShowStats(false)} stats={stats} />
       <HelpModal open={showHelp} onClose={() => setShowHelp(false)} />
+      <ImpressumDialog open={showImpressum} onClose={() => setShowImpressum(false)} />
     </div>
   );
 }
