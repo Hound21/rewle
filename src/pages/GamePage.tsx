@@ -26,6 +26,7 @@ export default function GamePage() {
   const [showStats, setShowStats] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [showImpressum, setShowImpressum] = useState(false);
+  const [productShakeTick, setProductShakeTick] = useState(0);
 
   const product = getDailyProduct();
   const strings = t();
@@ -37,6 +38,10 @@ export default function GamePage() {
       const newGuesses = [...state.guesses, result];
       const won = result.color === "green";
       const finished = won || newGuesses.length >= MAX_GUESSES;
+
+      if (!won) {
+        setProductShakeTick((tick) => tick + 1);
+      }
 
       const newState: DailyState = { ...state, guesses: newGuesses, finished, won };
       setState(newState);
@@ -79,7 +84,12 @@ export default function GamePage() {
         <main className="flex-1 flex flex-col px-4 py-4 gap-4">
           {/* Product */}
           <div className="flex flex-col items-center gap-4">
-            <div className="relative w-56 h-56 chunky-border chunky-shadow rounded-sm bg-card p-2 flex items-center justify-center">
+            <div
+              key={productShakeTick}
+              className={`relative w-56 h-56 chunky-border chunky-shadow rounded-sm bg-card p-2 flex items-center justify-center ${
+                productShakeTick > 0 ? "animate-product-shake" : ""
+              }`}
+            >
               {product.isPromo && (
                 <span className="absolute -right-4 -bottom-2 z-10 chunky-border chunky-shadow rounded-full bg-rewe-red px-2 py-0.5 text-[12px] font-medium tracking-wide text-primary-foreground">
                   Angebotspreis
@@ -101,7 +111,7 @@ export default function GamePage() {
               state.finished
                 ? `font-display font-semibold text-base md:text-base text-center whitespace-pre-line leading-tight px-3 py-2 rounded-sm chunky-border chunky-shadow-sm ${
                     state.won
-                      ? "bg-feedback-green/20 text-rewe-blue"
+                      ? "bg-feedback-green/20 text-rewe-blue animate-win-message"
                       : "bg-feedback-red/20 text-rewe-red"
                   }`
                 : "font-body text-sm text-center whitespace-pre-line text-muted-foreground"

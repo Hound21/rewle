@@ -116,7 +116,7 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "row-reveal": "row-reveal 0.3s ease-out",
-        "stamp": "stamp 0.3s ease-out",
+        "stamp": "stamp 0.6s ease-out",
       },
     },
   },

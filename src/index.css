@@ -73,4 +73,46 @@
     transform: translate(2px, 2px);
     box-shadow: 0px 0px 0px hsl(var(--shadow-color));
   }
+
+  @keyframes product-shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(-4px);
+    }
+    40% {
+      transform: translateX(4px);
+    }
+    60% {
+      transform: translateX(-3px);
+    }
+    80% {
+      transform: translateX(3px);
+    }
+  }
+
+  .animate-product-shake {
+    animation: product-shake 0.35s ease-in-out;
+  }
+
+  @keyframes win-message-enter {
+    0% {
+      transform: translateY(8px) scale(0.96);
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(0) scale(1.02);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-win-message {
+    animation: win-message-enter 0.55s ease-out;
+  }
 }
