@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="">
-    <img src="assets/rewle-large.png" alt="Logo" width="400">
+    <img src="public/assets/rewle-large.png" alt="Logo" width="400">
   </a>
 
 <h3 align="center">REWLE</h3>
@@ -57,4 +57,4 @@ This project would not have been possible without the following resources:
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[product-screenshot]: assets/rewle-game.png
+[product-screenshot]: public/assets/rewle-game.png
