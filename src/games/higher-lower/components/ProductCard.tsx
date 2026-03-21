@@ -17,7 +17,7 @@ export default function ProductCard({
 }: ProductCardProps) {
   const borderClass =
     borderState === "selected"
-      ? "border-[6px] border-black"
+      ? "border-[6px] border-muted-foreground"
       : borderState === "correct"
         ? "border-[6px] border-feedback-green"
         : borderState === "wrong"

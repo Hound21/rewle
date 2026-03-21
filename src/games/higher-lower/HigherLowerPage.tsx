@@ -240,10 +240,10 @@ export default function HigherLowerPage() {
           </div>
         </header>
 
-        <main className="relative flex-1 overflow-hidden">
-          <div className="absolute inset-0 flex flex-col md:flex-row">
+        <main className="relative flex-1 min-h-0 overflow-hidden">
+          <div className="absolute inset-0 flex min-h-0 flex-col md:flex-row">
             <div
-              className={`relative flex-1 ${
+              className={`relative basis-1/2 min-h-0 flex-1 md:basis-0 ${
                 animating ? "transition-transform duration-500 ease-in-out" : "transition-none"
               } ${
                 animating && incomingVisible
@@ -262,7 +262,7 @@ export default function HigherLowerPage() {
             </div>
 
             <div
-              className={`relative flex-1 ${
+              className={`relative basis-1/2 min-h-0 flex-1 md:basis-0 ${
                 animating ? "transition-transform duration-500 ease-in-out" : "transition-none"
               } ${
                 animating && incomingVisible
@@ -281,10 +281,10 @@ export default function HigherLowerPage() {
             </div>
 
             {animating && (
-              <div className="absolute inset-0 pointer-events-none flex flex-col md:flex-row">
-                <div className="relative flex-1" />
+              <div className="absolute inset-0 pointer-events-none flex min-h-0 flex-col md:flex-row">
+                <div className="relative basis-1/2 min-h-0 flex-1 md:basis-0" />
                 <div
-                  className={`relative flex-1 transition-transform duration-500 ease-in-out ${
+                  className={`relative basis-1/2 min-h-0 flex-1 md:basis-0 transition-transform duration-500 ease-in-out ${
                     incomingVisible
                       ? "translate-y-0 md:translate-y-0 md:translate-x-0"
                       : "translate-y-full md:translate-y-0 md:translate-x-full"
