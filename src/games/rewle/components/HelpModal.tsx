@@ -1,4 +1,4 @@
-import { t } from "@/lib/i18n";
+import { t } from "@/games/rewle/logic/i18n";
 
 interface HelpModalProps {
   open: boolean;
@@ -35,7 +35,6 @@ export default function HelpModal({ open, onClose }: HelpModalProps) {
           <p>{strings.helpColorRed}</p>
         </div>
 
-        {/* Example rows */}
         <div className="space-y-2 mb-4">
           <div className="flex gap-2">
             <div className="flex-1 h-9 chunky-border rounded-sm bg-feedback-red text-primary-foreground flex items-center px-3 font-body text-sm font-semibold">€3.50</div>
@@ -53,8 +52,12 @@ export default function HelpModal({ open, onClose }: HelpModalProps) {
 
         <hr className="border-border my-4" />
         <div className="font-body text-xs text-muted-foreground text-center space-y-1 mb-4">
-          <p>Source code available on my <a href="https://github.com/Hound21/rewle-game" className="underline">GitHub</a>!</p>
-          <p>Special thanks to <a href="https://costcodle.com/" className="underline"><span className="text-rewe-red">COSTCO</span><span className="text-rewe-blue">DLE</span></a> and <a href="https://www.nytimes.com/games/wordle/index.html" className="underline"><span className="text-feedback-green">Wordle</span></a> for inspiring REWLE!</p>
+          <p>
+            Source code available on my <a href="https://github.com/Hound21/rewle-game" className="underline">GitHub</a>!
+          </p>
+          <p>
+            Special thanks to <a href="https://costcodle.com/" className="underline"><span className="text-rewe-red">COSTCO</span><span className="text-rewe-blue">DLE</span></a> and <a href="https://www.nytimes.com/games/wordle/index.html" className="underline"><span className="text-feedback-green">Wordle</span></a> for inspiring REWLE!
+          </p>
         </div>
 
         <button

@@ -1,5 +1,5 @@
-import { GuessResult, MAX_GUESSES } from "@/lib/gameLogic";
-import { t } from "@/lib/i18n";
+import { GuessResult, MAX_GUESSES } from "@/games/rewle/logic/gameLogic";
+import { t } from "@/games/rewle/logic/i18n";
 
 interface GuessRowsProps {
   guesses: GuessResult[];
@@ -26,7 +26,6 @@ export default function GuessRows({ guesses, inputRow }: GuessRowsProps) {
     const guess = guesses[i];
     rows.push(
       <div key={i} className="flex gap-2 items-center">
-        {/* Price box */}
         <div
           className={`flex-1 h-11 chunky-border rounded-sm flex items-center justify-center text-center px-2 font-body font-extrabold text-lg tracking-wide ${
             guess ? `${colorClass(guess.color)} chunky-shadow-sm animate-stamp` : "bg-muted"
@@ -34,7 +33,6 @@ export default function GuessRows({ guesses, inputRow }: GuessRowsProps) {
         >
           {guess ? `${currency}${guess.value.toFixed(2)}` : ""}
         </div>
-        {/* Arrow box */}
         <div
           className={`w-24 h-11 chunky-border rounded-sm flex items-center justify-center font-display text-xl ${
             guess ? `${colorClass(guess.color)} chunky-shadow-sm animate-stamp` : "bg-muted"
@@ -46,5 +44,10 @@ export default function GuessRows({ guesses, inputRow }: GuessRowsProps) {
     );
   }
 
-  return <div className="flex flex-col gap-2">{rows}{inputRow}</div>;
+  return (
+    <div className="flex flex-col gap-2">
+      {rows}
+      {inputRow}
+    </div>
+  );
 }

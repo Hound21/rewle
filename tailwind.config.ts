@@ -20,6 +20,7 @@ export default {
         lilita: ["Lilita", "cursive"],
       },
       fontSize: {
+        xxs: "0.75rem",
         xs: "0.828rem",
         sm: "0.963rem",
         base: "1.098rem",

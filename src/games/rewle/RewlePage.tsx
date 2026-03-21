@@ -1,11 +1,11 @@
-import { useState, useCallback } from "react";
-import Header from "@/components/GameHeader";
-import GuessRows from "@/components/GuessRows";
-import GuessInput from "@/components/GuessInput";
-import StatsModal from "@/components/StatsModal";
-import HelpModal from "@/components/HelpModal";
-import ImpressumDialog from "@/components/ImpressumDialog";
-import { t } from "@/lib/i18n";
+import { useCallback, useState } from "react";
+import GameHeader from "@/games/rewle/components/GameHeader";
+import GuessRows from "@/games/rewle/components/GuessRows";
+import GuessInput from "@/games/rewle/components/GuessInput";
+import StatsModal from "@/games/rewle/components/StatsModal";
+import HelpModal from "@/games/rewle/components/HelpModal";
+import ImpressumDialog from "@/games/rewle/components/ImpressumDialog";
+import { t } from "@/games/rewle/logic/i18n";
 import {
   getDailyProduct,
   evaluateGuess,
@@ -17,10 +17,15 @@ import {
   MAX_GUESSES,
   DailyState,
   Stats,
-} from "@/lib/gameLogic";
+} from "@/games/rewle/logic/gameLogic";
 import { toast } from "sonner";
+import Footer from "@/shared/components/Footer";
+import { useProducts } from "@/shared/hooks/useProducts";
 
-export default function GamePage() {
+export default function RewlePage() {
+  const products = useProducts();
+  const product = getDailyProduct(products);
+
   const [state, setState] = useState<DailyState>(loadDailyState);
   const [stats, setStats] = useState<Stats>(loadStats);
   const [showStats, setShowStats] = useState(false);
@@ -28,7 +33,6 @@ export default function GamePage() {
   const [showImpressum, setShowImpressum] = useState(false);
   const [productShakeTick, setProductShakeTick] = useState(0);
 
-  const product = getDailyProduct();
   const strings = t();
 
   const handleGuess = useCallback(
@@ -62,9 +66,6 @@ export default function GamePage() {
     });
   }, [state, strings]);
 
-  const productName = product.name;
-
-  // Status message
   let statusMessage = "";
   if (state.finished) {
     const priceStr = `${strings.currency}${product.price.toFixed(2)}`;
@@ -76,13 +77,12 @@ export default function GamePage() {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="w-full max-w-game mx-auto flex flex-1 flex-col">
-        <Header
+        <GameHeader
           onOpenHelp={() => setShowHelp(true)}
           onOpenStats={() => setShowStats(true)}
         />
 
         <main className="flex-1 flex flex-col px-4 py-4 gap-4">
-          {/* Product */}
           <div className="flex flex-col items-center gap-4">
             <div
               key={productShakeTick}
@@ -97,15 +97,14 @@ export default function GamePage() {
               )}
               <img
                 src={product.image}
-                alt={productName}
+                alt={product.name}
                 className="max-w-full max-h-full object-contain"
                 loading="lazy"
               />
             </div>
-            <h2 className="font-body font-bold text-lg text-center leading-tight">{productName}</h2>
+            <h2 className="font-body font-bold text-lg text-center leading-tight">{product.name}</h2>
           </div>
 
-          {/* Status */}
           <p
             className={
               state.finished
@@ -120,9 +119,8 @@ export default function GamePage() {
             {statusMessage}
           </p>
 
-          {/* Guess rows */}
-          <GuessRows 
-            guesses={state.guesses} 
+          <GuessRows
+            guesses={state.guesses}
             inputRow={
               !state.finished ? (
                 <GuessInput onSubmit={handleGuess} disabled={state.finished} />
@@ -142,19 +140,7 @@ export default function GamePage() {
         </main>
       </div>
 
-      <footer className="w-full mt-auto border-t border-x-0 border-b-0 bg-muted px-2 py-1">
-        <div className="flex w-full items-center justify-between gap-2">
-          <p className="text-[10px] text-muted-foreground leading-tight">
-            Inoffizielles Fanprojekt - Keine Verbindung zu REWE
-          </p>
-          <button
-            onClick={() => setShowImpressum(true)}
-            className="shrink-0 rounded-sm chunky-border bg-background px-2 py-0.5 text-[10px] font-semibold text-foreground btn-press"
-          >
-            Impressum
-          </button>
-        </div>
-      </footer>
+      <Footer onOpenImpressum={() => setShowImpressum(true)} />
 
       <StatsModal open={showStats} onClose={() => setShowStats(false)} stats={stats} />
       <HelpModal open={showHelp} onClose={() => setShowHelp(false)} />

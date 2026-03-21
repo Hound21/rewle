@@ -1,5 +1,5 @@
-import { Stats } from "@/lib/gameLogic";
-import { t } from "@/lib/i18n";
+import { Stats } from "@/games/rewle/logic/gameLogic";
+import { t } from "@/games/rewle/logic/i18n";
 
 interface StatsModalProps {
   open: boolean;
