@@ -38,12 +38,12 @@ function preloadImage(src: string) {
 }
 
 const FIRST_REVEAL_START_MS = 500;
-const SECOND_REVEAL_DELAY_MS = 1000;
+const SECOND_REVEAL_DELAY_MS = 800;
 const INDICATOR_VISIBLE_MS = 1000;
 const HIDE_TO_SLIDE_DELAY_MS = 500;
 const VS_REAPPEAR_DELAY_MS = 20;
-const SLIDE_DURATION_MS = 1500;
-const VS_TO_RESULT_DELAY_MS = 260;
+const SLIDE_DURATION_MS = 800;
+const VS_TO_RESULT_DELAY_MS = 200;
 
 export default function HigherLowerPage() {
   const allProducts = useProducts();
@@ -111,7 +111,7 @@ export default function HigherLowerPage() {
     setClickedBorderState("selected");
     window.setTimeout(() => {
       setClickedBorderState(immediateResult === "correct" ? "correct" : "wrong");
-    }, 1400);
+    }, 1100);
     setGame((prev) => ({
       ...prev,
       isFirstRound: false,
